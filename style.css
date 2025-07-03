@@ -1,0 +1,150 @@
+/*
+Theme Name: Singer V2
+Description: Thème WordPress Singer adapté depuis le template personnalisé avec Tailwind CSS
+Author: Singer
+Version: 1.0.0
+Text Domain: singer-v2
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.site-container {
+  max-width: 2300px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.green-badge {
+  background-color: #5a8d3f;
+}
+
+/* Dropdown menu styles */
+.desktop-menu-item {
+  position: relative;
+}
+
+.desktop-submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 600px;
+  z-index: 50;
+  padding: 1.5rem;
+}
+
+.desktop-menu-item:hover .desktop-submenu {
+  display: block;
+}
+
+.submenu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.submenu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.submenu-item:hover {
+  background-color: #fff9f5;
+}
+
+.submenu-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background-color: #fff9f5;
+  border-radius: 0.25rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+}
+
+.submenu-links {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Mobile menu improvements */
+.mobile-submenu {
+  background-color: #f9f9f9;
+}
+
+.pagecontent h3 {
+  font-size: 25px;
+  font-family: La Belle Aurore, cursive;
+  font-weight: 400;
+  line-height: 37px;
+}
+
+/* Dynamic Color Variables */
+:root {
+  --color-primary: #cc0017;
+  --color-primary-hover: #a0001e;
+  --color-secondary: #0077be;
+  --color-secondary-light: #f5f9fc;
+  --color-price: #cc0017;
+}
+
+/* Common Classes */
+.singer-red {
+  background-color: var(--color-primary);
+}
+
+.singer-red-text {
+  color: var(--color-primary);
+}
+
+.singer-red-border {
+  border-color: var(--color-primary);
+}
+
+.bg-secondary-light {
+  background-color: var(--color-secondary-light);
+}
+
+.price-color {
+  color: var(--color-price);
+  background-color: #f8f9fa;
+  padding: 1px 5px 2px;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.product-image-bg {
+  background-color: #f3f7fb;
+}
+
+.thumbnail-active {
+  border-color: var(--color-primary);
+}
+
+/* Button Hover States */
+.singer-red:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.singer-red-text:hover {
+  color: var(--color-primary-hover);
+}

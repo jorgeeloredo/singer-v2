@@ -1,0 +1,320 @@
+# Singer V2 WordPress Theme
+# Copyright (C) 2024 Singer
+# This file is distributed under the same license as the Singer V2 package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Singer V2 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: functions.php
+msgid "Menu Principal"
+msgstr ""
+
+#: functions.php
+msgid "Menu Footer"
+msgstr ""
+
+#: functions.php
+msgid "Sidebar Principal"
+msgstr ""
+
+#: functions.php
+msgid "Widgets qui apparaissent dans la sidebar principale."
+msgstr ""
+
+#: functions.php
+msgid "Footer 1"
+msgstr ""
+
+#: functions.php
+msgid "Première colonne du footer."
+msgstr ""
+
+#: functions.php
+msgid "Footer 2"
+msgstr ""
+
+#: functions.php
+msgid "Deuxième colonne du footer."
+msgstr ""
+
+#: functions.php
+msgid "Footer 3"
+msgstr ""
+
+#: functions.php
+msgid "Troisième colonne du footer."
+msgstr ""
+
+#: functions.php
+msgid "Footer 4"
+msgstr ""
+
+#: functions.php
+msgid "Quatrième colonne du footer."
+msgstr ""
+
+#: functions.php
+msgid "Couleurs Singer"
+msgstr ""
+
+#: functions.php
+msgid "Couleur Primaire"
+msgstr ""
+
+#: functions.php
+msgid "Couleur Secondaire"
+msgstr ""
+
+#: functions.php
+msgid "Couleur Secondaire Claire"
+msgstr ""
+
+#: functions.php
+msgid "Couleur Prix"
+msgstr ""
+
+#: functions.php
+msgid "Détails Produit Singer"
+msgstr ""
+
+#: functions.php
+msgid "Niveau"
+msgstr ""
+
+#: functions.php
+msgid "Débutant"
+msgstr ""
+
+#: functions.php
+msgid "Intermédiaire"
+msgstr ""
+
+#: functions.php
+msgid "Expert"
+msgstr ""
+
+#: functions.php
+msgid "Référence SKU"
+msgstr ""
+
+#: functions.php
+msgid "GTIN/EAN"
+msgstr ""
+
+#: functions.php
+msgid "Éco-participation (€)"
+msgstr ""
+
+#: header.php
+msgid "Menu"
+msgstr ""
+
+#: header.php
+msgid "Mon compte"
+msgstr ""
+
+#: header.php
+msgid "Connexion"
+msgstr ""
+
+#: header.php
+msgid "Panier"
+msgstr ""
+
+#: header.php
+msgid "Déconnexion"
+msgstr ""
+
+#: footer.php
+msgid "Livraison offerte"
+msgstr ""
+
+#: footer.php
+msgid "Paiement en 2, 3 ou 4x"
+msgstr ""
+
+#: footer.php
+msgid "Sans frais"
+msgstr ""
+
+#: footer.php
+msgid "Retour gratuit"
+msgstr ""
+
+#: footer.php
+msgid "Besoin d'aide ?"
+msgstr ""
+
+#: footer.php
+msgid "Contactez-nous"
+msgstr ""
+
+#: footer.php
+msgid "ici"
+msgstr ""
+
+#: footer.php
+msgid "Singer, la marque de référence en matière de couture : 170 ans de savoir-faire et de notoriété"
+msgstr ""
+
+#: footer.php
+msgid "Général"
+msgstr ""
+
+#: footer.php
+msgid "Politique de confidentialité"
+msgstr ""
+
+#: footer.php
+msgid "Conditions générales de vente"
+msgstr ""
+
+#: footer.php
+msgid "Mentions légales"
+msgstr ""
+
+#: footer.php
+msgid "La marque"
+msgstr ""
+
+#: footer.php
+msgid "Machines"
+msgstr ""
+
+#: footer.php
+msgid "Aide à l'achat"
+msgstr ""
+
+#: footer.php
+msgid "Questions fréquentes"
+msgstr ""
+
+#: footer.php
+msgid "Vos avantages"
+msgstr ""
+
+#: footer.php
+msgid "Tutos & conseils"
+msgstr ""
+
+#: footer.php
+msgid "Nos actualités"
+msgstr ""
+
+#: footer.php
+msgid "Nous contacter"
+msgstr ""
+
+#: index.php
+msgid "Nos catégories"
+msgstr ""
+
+#: index.php
+msgid "Nos produits vedettes"
+msgstr ""
+
+#: index.php
+msgid "Promo"
+msgstr ""
+
+#: index.php
+msgid "En stock"
+msgstr ""
+
+#: index.php
+msgid "Rupture de stock"
+msgstr ""
+
+#: index.php
+msgid "Découvrir le tutoriel"
+msgstr ""
+
+#: index.php
+msgid "Blog"
+msgstr ""
+
+#: index.php
+msgid "Aucun article trouvé"
+msgstr ""
+
+#: index.php
+msgid "Il n'y a pas encore d'articles publiés."
+msgstr ""
+
+#: index.php
+msgid "Précédent"
+msgstr ""
+
+#: index.php
+msgid "Suivant"
+msgstr ""
+
+#: index.php
+msgid "Tutoriel couture"
+msgstr ""
+
+#: index.php
+msgid "Découvrez nos techniques de couture avec ce tutoriel pas à pas."
+msgstr ""
+
+#: single.php
+msgid "Retour"
+msgstr ""
+
+#: single.php
+msgid "Pages:"
+msgstr ""
+
+#: single.php
+msgid "Tags:"
+msgstr ""
+
+#: single.php
+msgid "Article précédent"
+msgstr ""
+
+#: single.php
+msgid "Article suivant"
+msgstr ""
+
+#: single.php
+msgid "Partager cet article:"
+msgstr ""
+
+#: single.php
+msgid "Articles similaires"
+msgstr ""
+
+#: single.php
+msgid "Lire la suite"
+msgstr ""
+
+#: page.php
+msgid "Pages liées"
+msgstr ""
+
+#: page.php
+msgid "Modifier cette page"
+msgstr ""
+
+#: inc/nav-walkers.php
+msgid "Accueil"
+msgstr ""
+
+#: inc/nav-walkers.php
+msgid "Boutique"
+msgstr ""
+
+#: inc/nav-walkers.php
+msgid "Contact"
+msgstr ""
