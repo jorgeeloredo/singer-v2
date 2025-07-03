@@ -1,14 +1,13 @@
 <?php
 /**
- * Product Category Template - Uses the same layout as archive-product.php
- * Exact copy of app/views/product/list.php for categories
+ * Product Category Template - Direct styling like repository
  */
 
 defined('ABSPATH') || exit;
 
 get_header(); 
 
-// Include the same content as archive-product.php
+// Use the same direct content as archive-product.php
 include(locate_template('woocommerce/archive-product.php'));
 
 get_footer();
