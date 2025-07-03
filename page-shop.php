@@ -1,26 +1,35 @@
 <?php
 /**
- * Product Category Template - Direct styling like repository
+ * Custom Shop Page Template
+ * This overrides the default WooCommerce shop page to match repository design
  */
 
 defined('ABSPATH') || exit;
 
-get_header(); ?>
+get_header(); 
+
+// Setup the main query for products
+if (!woocommerce_products_will_display()) {
+    // If no products will display, setup a basic query
+    global $wp_query;
+    $wp_query = new WP_Query(array(
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'posts_per_page' => get_option('posts_per_page', 12),
+        'meta_query' => WC()->query->get_meta_query(),
+        'tax_query' => WC()->query->get_tax_query()
+    ));
+}
+?>
 
 <div class="px-4 py-8 site-container">
   <div class="mb-6">
     <h1 class="text-2xl font-normal text-gray-800">
-      <?php single_cat_title(); ?>
+      <?php echo __('Tous nos produits', 'singer-v2'); ?>
     </h1>
-    <?php 
-    $term_description = term_description();
-    if (!empty($term_description)) {
-      echo '<p class="mt-2 text-sm text-gray-600">' . wp_kses_post($term_description) . '</p>';
-    }
-    ?>
   </div>
 
-  <?php if (woocommerce_product_loop()) : ?>
+  <?php if (have_posts()) : ?>
 
     <!-- Product Grid -->
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -28,6 +37,11 @@ get_header(); ?>
       while (have_posts()) {
         the_post();
         global $product;
+        
+        // Ensure we have a valid product
+        if (!$product || !$product->is_visible()) {
+            continue;
+        }
         
         // Get product data
         $product_id = $product->get_id();
@@ -152,6 +166,19 @@ get_header(); ?>
       <?php } ?>
     </div>
 
+    <!-- Pagination -->
+    <?php
+    echo paginate_links(array(
+        'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+        'format' => '?paged=%#%',
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages,
+        'prev_text' => '‹ ' . __('Précédent', 'singer-v2'),
+        'next_text' => __('Suivant', 'singer-v2') . ' ›',
+        'type' => 'list'
+    ));
+    ?>
+
   <?php else : ?>
     <!-- No products found -->
     <div class="p-8 text-center bg-white border border-gray-200 rounded-lg">
@@ -159,12 +186,11 @@ get_header(); ?>
         <i class="text-5xl text-gray-300 fas fa-box-open"></i>
       </div>
       <h2 class="mb-2 text-xl font-medium text-gray-800"><?php echo __('Aucun produit trouvé', 'singer-v2'); ?></h2>
-      <p class="mb-6 text-gray-600"><?php echo __('Aucun produit n\'est disponible dans cette catégorie pour le moment.', 'singer-v2'); ?></p>
-      <a href="<?php echo wc_get_page_permalink('shop'); ?>" class="px-6 py-3 text-white transition rounded-full bg-primary hover:bg-primary-hover">
-        <?php echo __('Voir tous les produits', 'singer-v2'); ?>
-      </a>
+      <p class="mb-6 text-gray-600"><?php echo __('Aucun produit n\'est disponible pour le moment.', 'singer-v2'); ?></p>
     </div>
   <?php endif; ?>
 </div>
 
-<?php get_footer(); ?>
+<?php
+wp_reset_postdata();
+get_footer(); ?>

@@ -1,26 +1,46 @@
 <?php
 /**
- * Product Category Template - Direct styling like repository
+ * Custom Product Category Page Template
+ * This overrides the default WooCommerce category page to match repository design
  */
 
 defined('ABSPATH') || exit;
 
-get_header(); ?>
+get_header(); 
+
+// Get current category
+$current_term = get_queried_object();
+
+// Setup the main query for category products
+global $wp_query;
+if (!have_posts()) {
+    $wp_query = new WP_Query(array(
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'posts_per_page' => get_option('posts_per_page', 12),
+        'meta_query' => WC()->query->get_meta_query(),
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'term_id',
+                'terms' => $current_term->term_id,
+            )
+        )
+    ));
+}
+?>
 
 <div class="px-4 py-8 site-container">
   <div class="mb-6">
     <h1 class="text-2xl font-normal text-gray-800">
-      <?php single_cat_title(); ?>
+      <?php echo esc_html($current_term->name); ?>
     </h1>
-    <?php 
-    $term_description = term_description();
-    if (!empty($term_description)) {
-      echo '<p class="mt-2 text-sm text-gray-600">' . wp_kses_post($term_description) . '</p>';
-    }
-    ?>
+    <?php if (!empty($current_term->description)) : ?>
+      <p class="mt-2 text-sm text-gray-600"><?php echo wp_kses_post($current_term->description); ?></p>
+    <?php endif; ?>
   </div>
 
-  <?php if (woocommerce_product_loop()) : ?>
+  <?php if (have_posts()) : ?>
 
     <!-- Product Grid -->
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -28,6 +48,11 @@ get_header(); ?>
       while (have_posts()) {
         the_post();
         global $product;
+        
+        // Ensure we have a valid product
+        if (!$product || !$product->is_visible()) {
+            continue;
+        }
         
         // Get product data
         $product_id = $product->get_id();
@@ -152,6 +177,19 @@ get_header(); ?>
       <?php } ?>
     </div>
 
+    <!-- Pagination -->
+    <?php
+    echo paginate_links(array(
+        'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+        'format' => '?paged=%#%',
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages,
+        'prev_text' => '‹ ' . __('Précédent', 'singer-v2'),
+        'next_text' => __('Suivant', 'singer-v2') . ' ›',
+        'type' => 'list'
+    ));
+    ?>
+
   <?php else : ?>
     <!-- No products found -->
     <div class="p-8 text-center bg-white border border-gray-200 rounded-lg">
@@ -167,4 +205,6 @@ get_header(); ?>
   <?php endif; ?>
 </div>
 
-<?php get_footer(); ?>
+<?php
+wp_reset_postdata();
+get_footer(); ?>

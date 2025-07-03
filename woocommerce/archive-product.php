@@ -1,13 +1,12 @@
 <?php
 /**
- * Product Archive Template - Complete page like app/views/product/list.php
+ * Product Archive Template - Exact copy of app/views/product/list.php
  */
 
 defined('ABSPATH') || exit;
 
 get_header(); ?>
 
-<!-- Main Content without container wrapper -->
 <div class="px-4 py-8 site-container">
   <div class="mb-6">
     <h1 class="text-2xl font-normal text-gray-800">

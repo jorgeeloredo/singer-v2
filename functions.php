@@ -405,3 +405,36 @@ function singer_image_optimization() {
     }, 10, 3);
 }
 add_action('init', 'singer_image_optimization');
+
+/**
+ * Remove WooCommerce default wrappers that add containers
+ */
+function singer_remove_woocommerce_wrappers() {
+    remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+    remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+    remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+}
+add_action('after_setup_theme', 'singer_remove_woocommerce_wrappers');
+
+/**
+ * Remove WooCommerce page title on shop page (we handle it in our template)
+ */
+add_filter('woocommerce_show_page_title', '__return_false');
+
+/**
+ * Force use of our custom templates for WooCommerce pages
+ */
+function singer_woocommerce_template_redirect() {
+    if (is_shop()) {
+        // Force our custom shop template
+        include(get_template_directory() . '/page-shop.php');
+        exit;
+    }
+    
+    if (is_product_category() || is_product_tag()) {
+        // Force our custom category template
+        include(get_template_directory() . '/page-category.php');
+        exit;
+    }
+}
+add_action('template_redirect', 'singer_woocommerce_template_redirect', 5);
